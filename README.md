@@ -6,12 +6,12 @@
 <h3 align="center">A drop-in config kit for Tabby — Windows Terminal-style keybindings, Firefox-style pill tabs, and tmux-style panes. No source edits, no rebuild.</h3>
 
 <p align="center">
-  <a href="https://www.youtube.com/watch?v=jU7Q0876iWU" target="_blank" rel="noopener noreferrer">
-    <img src="https://img.youtube.com/vi/jU7Q0876iWU/hqdefault.jpg" alt="tabby-tweaks demo video" width="80%" />
+  <a href="https://www.youtube.com/watch?v=VDx0aA2YyxU" target="_blank" rel="noopener noreferrer">
+    <img src="assets/tabby-tweaks-cover.jpg" alt="tabby-tweaks demo video" width="80%" />
   </a>
 </p>
 <p align="center">
-  <a href="https://www.youtube.com/watch?v=jU7Q0876iWU" target="_blank" rel="noopener noreferrer">
+  <a href="https://www.youtube.com/watch?v=VDx0aA2YyxU" target="_blank" rel="noopener noreferrer">
     <img src="https://img.shields.io/badge/▶_Watch_the_demo-FF0000?style=for-the-badge&logo=youtube&logoColor=white" alt="Watch demo on YouTube" />
   </a>
 </p>
