@@ -57,16 +57,43 @@ Tabby 实际读取的配置路径为 `%APPDATA%\tabby\config.yaml`（Windows）�
   - 终端视口：`.xterm-viewport`
 - ⚠️ **Tabby 运行时会把内存中的配置全量写回磁盘**。修改 `config.yaml` 前必须先完全退出 Tabby（含托盘），否则改动会被覆盖。改完重启生效。
 
-## 恢复方法
+## 部署与恢复（推荐用脚本）
+
+两个脚本都会**先备份当前配置**（带时间戳），并且**自动检测 Tabby 是否运行**——运行中会直接拒绝操作（防止退出时被内存旧配置覆盖）。所以运行前请先完全退出 Tabby（含托盘图标）。
+
+**部署客制化配置**（备份现有 → 部署 `config.yaml`）：
 
 ```powershell
-# 恢复当前客制化配置
+pwsh -File .\scripts\deploy.ps1
+pwsh -File .\scripts\deploy.ps1 -Force              # 跳过确认
+pwsh -File .\scripts\deploy.ps1 -ConfigDir "D:\tabby-data"   # 自定义 userData 目录
+```
+
+**恢复出厂设置**（备份现有 → 用 `config.yaml.orig` 覆盖，清除所有客制化）：
+
+```powershell
+pwsh -File .\scripts\restore.ps1
+pwsh -File .\scripts\restore.ps1 -Force
+pwsh -File .\scripts\restore.ps1 -ConfigDir "D:\tabby-data"
+```
+
+- 默认配置目录：`%APPDATA%\tabby`（Windows）
+- 备份文件命名：部署为 `config.yaml.bak-<时间戳>`，恢复为 `config.yaml.before-restore-<时间戳>`，都放在同一配置目录，随时可手动拷回
+- 恢复后想重新启用客制化：跑 `deploy.ps1` 即可（恢复前的客制化配置已备份）
+
+<details>
+<summary>手动命令（不想用脚本时）</summary>
+
+```powershell
+# 部署
 Copy-Item "$env:APPDATA\tabby\config.yaml" `
-          "$env:APPDATA\tabby\config.yaml.bak-$(Get-Date -Format yyyyMMdd-HHmmss)"  # 先备份现有
+          "$env:APPDATA\tabby\config.yaml.bak-$(Get-Date -Format yyyyMMdd-HHmmss)"
 Copy-Item ".\config.yaml" "$env:APPDATA\tabby\config.yaml" -Force
 
-# 回滚到原始配置
+# 恢复出厂
 Copy-Item ".\config.yaml.orig" "$env:APPDATA\tabby\config.yaml" -Force
 ```
 
 复制前请确保 Tabby 已完全退出。
+
+</details>
