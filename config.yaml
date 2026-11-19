@@ -185,7 +185,8 @@ hotkeys:
   pane-nav-9: []
   pane-maximize:
     - Ctrl-Alt-Enter
-  close-pane: []
+  close-pane:
+    - Alt-Shift-X
   pane-increase-vertical:
     - Alt-Shift-Down
   pane-decrease-vertical:
