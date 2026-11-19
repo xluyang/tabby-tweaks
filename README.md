@@ -1,99 +1,211 @@
-# Tabby 终端客制化配置备份
+<p align="center">
+  <img src="assets/logo.svg" alt="tabby-terminal-kit" width="110" />
+</p>
 
-本目录备份 Tabby 终端（Windows，v1.0.237）的快捷键与外观客制化配置，便于版本管理、迁移与回滚。
+<h1 align="center">tabby-terminal-kit</h1>
+<h3 align="center">A drop-in config kit for Tabby — Windows Terminal-style keybindings, Firefox-style pill tabs, and tmux-style panes. No source edits, no rebuild.</h3>
 
-## 文件说明
+<!--
+  首屏产品截图：发布前请补一张实际效果大图（建议 16:9，展示药丸标签 + 分屏 + 配色），
+  放到 assets/preview.png 后取消下面这段注释。现在没有成品图，留空以免显示破图。
 
-| 文件 | 说明 |
-|---|---|
-| `config.yaml` | **当前生效版**：Windows Terminal 风格快捷键 + 药丸形圆角标签 + tmux 风格分割线 + 隐藏滚动条 |
-| `config.yaml.orig` | **原始版**：本机 Tabby 首次客制化前的配置（仅作回滚参考） |
+<p align="center">
+  <img src="assets/preview.png" alt="tabby-terminal-kit in action" width="100%" />
+</p>
+<p align="center">
+  <sub>药丸形标签 · 主题色线圈 · tmux 风格分割线 · Windows Terminal 风格快捷键</sub>
+</p>
+-->
 
-Tabby 实际读取的配置路径为 `%APPDATA%\tabby\config.yaml`（Windows）。
+<p align="center">
+  <img src="https://img.shields.io/badge/Version-1.0.0-0568FD?style=flat&logo=semver&logoColor=F8F8F8&labelColor=212123" alt="Version 1.0.0" />
+  <img src="https://img.shields.io/badge/License-MIT-0568FD?style=flat&logo=gnu&logoColor=F8F8F8&labelColor=212123" alt="License MIT" />
+  <img src="https://img.shields.io/badge/Platform-Windows-0078D6?style=flat&logo=windows&logoColor=F8F8F8&labelColor=212123" alt="Windows" />
+  <img src="https://img.shields.io/badge/Tabby-1.0.237%2B-57606A?style=flat&logo=terminal&logoColor=F8F8F8&labelColor=212123" alt="Tabby 1.0.237+" />
+  <img src="https://img.shields.io/badge/Config-YAML%2BCSS-6645AB?style=flat&logo=css3&logoColor=F8F8F8&labelColor=212123" alt="YAML + CSS" />
+</p>
 
-## 客制化内容清单
+<!--
+  需要真实仓库数据的徽章：发布后把 OWNER 换成你的用户名/组织，再取消注释。
+  未发布前保持注释，避免 broken image。
 
-### 1. 快捷键（Windows Terminal 风格）—— `hotkeys:`
+  <a href="https://github.com/OWNER/tabby-terminal-kit/releases"><img src="https://img.shields.io/github/downloads/OWNER/tabby-terminal-kit/total?style=flat&logo=github&label=Downloads&labelColor=212123&color=0568FD" alt="Total Downloads" /></a>
+  <a href="https://github.com/OWNER/tabby-terminal-kit/actions"><img src="https://img.shields.io/github/actions/workflow/status/OWNER/tabby-terminal-kit/ci.yml?label=Build&labelColor=000000" alt="Build" /></a>
+  <a href="https://www.star-history.com/?repos=OWNER%2Ftabby-terminal-kit&type=date&legend=bottom-right"><img src="https://api.star-history.com/badge?repo=OWNER/tabby-terminal-kit&type=rank" alt="Star History Rank" /></a>
+  Trendshift：先到 https://trendshift.io 提交仓库拿到 <repository-id>，替换下面 URL 末尾的 0。
+  <a href="https://trendshift.io/repositories/0"><img src="https://trendshift.io/api/badge/repositories/0" alt="Trendshift" /></a>
+-->
 
-| 功能 | 原键位 | 现键位 |
-|---|---|---|
-| 向右分屏 | `Ctrl+Shift+S` | `Alt+Shift+=` / `Alt+Shift+D` |
-| 向下分屏 | `Ctrl+Shift+D` | `Alt+Shift+-` |
-| 窗格跳转 ←↑↓→ | `Ctrl+Alt+方向键` | `Alt+方向键` |
-| 上一/下一窗格 | `Ctrl+Alt+[` `]` | `Alt+[` `]` |
-| 左右分屏调宽/窄 | 无 | `Alt+Shift+→` / `Alt+Shift+←` |
-| 上下分屏调高/矮 | 无 | `Alt+Shift+↓` / `Alt+Shift+↑` |
-| 调节步进 `paneResizeStep` | 默认 `0.1` | `0.05` |
-| 切换当前窗格 profile | `Ctrl-Alt-T` | `Alt-Shift-S`(新增,保留原键) |
-| 关闭当前窗格 | 无 | `Alt-Shift-X`(新增) |
+<p align="center">
+  <a href="https://github.com/OWNER/tabby-terminal-kit"><img src="https://img.shields.io/badge/⭐_Star_this_repo-0568FD?style=for-the-badge&logo=github" alt="Star" /></a>
+</p>
 
-> 注：`Alt+Shift` 在部分 Windows 多语言环境下可能与输入法切换冲突；`Alt+Shift+=` 更可靠。
+**🇨🇳 简体中文** · [English](docs/README.en.md) *(coming soon)*
 
-**分屏后换串口 profile 的用法**（两步，是两个独立的键）：
+<!-- 信任建设：仓库发布后取消注释并替换 OWNER。项目刚起步，当前没有赞助商/star，占位内容会误导访客，故默认关闭。
 
-1. **先分屏**：`Alt+Shift+=` / `Alt+Shift+D`（向右）或 `Alt+Shift+-`（向下）。分屏默认复制当前 tab，所以 COM50 分屏后新窗格仍是 COM50——这是正常的。
-2. **再切换**：在新窗格里按 `Alt+Shift-S`（或右键 → **Switch profile**），从弹出的 profile 列表里选另一个 COM 口即可——Tabby 会用新 profile 的 tab 替换该窗格（原生 `switch-profile` 机制，无需改源码）。PowerShell / WSL 分屏后无需第 2 步，保持原样复制即可。
+## Paid Sponsors
 
-**关闭串口窗格**：串口没有本地 shell，`exit` 只会当字符串发给设备、不会关闭窗格。用 `Alt+Shift-X` 直接关闭当前焦点窗格（原生 `close-pane`，对 PowerShell / WSL / 串口都有效）。也可点 tab 上的 × 或右键关闭。
+<table width="100%">
+  <tr>
+    <td align="center">
+      <a href="mailto:OWNER@example.com"><b>Contact to sponsor</b></a><br />
+      <sub>Put your product in front of embedded developers using Tabby.</sub>
+    </td>
+  </tr>
+</table>
 
-### 2. 外观（CSS 注入）—— `appearance.css`
+## Star History
 
-通过 `appearance.css` 配置项直接内嵌 CSS（Tabby 注入到 `<style id="custom-css">`，优先级高于主题默认样式）：
+<a href="https://www.star-history.com/?repos=OWNER%2Ftabby-terminal-kit&type=date&legend=bottom-right">
+  <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=OWNER/tabby-terminal-kit&type=date&legend=bottom-right" />
+</a>
 
-- **隐藏终端滚动条**：`.xterm-viewport` 及 webkit 滚动条设为 0 宽 / `none`，保留滚动功能
-- **tmux 风格分割线**：`split-tab-spanner` 默认透明、宽 4px，hover / 拖动时才显示主题色
-- **激活窗格着色**：`split-tab > .child.focused` 加 1px 主题色边框
-- **Firefox 风格药丸标签**：`tab-header` 四角全圆 `12px`、四周留白悬浮、主题色线圈（非激活 45% 透明、hover 80%、激活实色 + 同色辉光）；隐藏原 `current-tab-indicator`
+## Contributors
 
-颜色统一用 CSS 变量（`--theme-primary`、`--body-bg` 等），换主题自动适配。
+<a href="https://github.com/OWNER/tabby-terminal-kit/graphs/contributors">
+  <img alt="Contributors" src="https://contrib.rocks/image?repo=OWNER/tabby-terminal-kit" />
+</a>
 
-## 关键实现依据（供后续客制化参考）
+-->
 
-- Tabby 内置插件完整源码位于 `C:\Program Files\Tabby\resources\builtin-plugins\`（`tabby-core/src`、`tabby-terminal/src`），比在线文档更精确可靠。
-- 相关选择器：
-  - 标签栏：`.main.content > .tab-bar > .tabs > tab-header(.active)`
-  - 分割线：`split-tab-spanner`（`.h` 左右分屏 / `.v` 上下分屏 / `.active` 拖动中）
-  - 分屏子面板：`split-tab > .child`（焦点为 `.focused`）
-  - 终端视口：`.xterm-viewport`
-- ⚠️ **Tabby 运行时会把内存中的配置全量写回磁盘**。修改 `config.yaml` 前必须先完全退出 Tabby（含托盘），否则改动会被覆盖。改完重启生效。
+## About
 
-## 部署与恢复（推荐用脚本）
+`tabby-terminal-kit` 是 [Tabby](https://github.com/Eugeny/tabby) 终端的一份**开箱即用的配置套件**：把 Windows Terminal 风格的快捷键、Firefox 风格药丸标签、tmux 风格分割线，打包成一份可部署、可回滚的 `config.yaml`。
 
-两个脚本都会**先备份当前配置**（带时间戳），并且**自动检测 Tabby 是否运行**——运行中会直接拒绝操作（防止退出时被内存旧配置覆盖）。所以运行前请先完全退出 Tabby（含托盘图标）。
+原理很简单：Tabby 把快捷键和自定义 CSS 都放在用户配置 `config.yaml` 里（`appearance.css` 会注入到页面 `<style>` 中，优先级高于主题默认）。本仓库就是这份调好效果的配置文件 + 部署/恢复脚本——**不改 Tabby 安装目录、不装编译工具、不动源码**。
 
-**部署客制化配置**（备份现有 → 部署 `config.yaml`）：
+无套路承诺：纯配置、不联网、不埋点。部署前自动备份，一条命令恢复出厂，随时可退。
+
+**Good for:**
+- 用惯 Windows Terminal / tmux，希望 Tabby 手感和它们一致的开发者
+- 嵌入式场景里同时开 PowerShell + WSL + 多路串口，想要清爽分屏和一眼可辨的标签
+- 想要"好看且不折腾"的 Tabby 外观党
+
+**Also for machines:** 配置是可 diff 的纯文本（`config.yaml`），CSS 用主题 CSS 变量（`--theme-primary`、`--body-bg` 等）写成，换主题自动适配。想二次开发？直接改 `config.yaml` 里的 `hotkeys:` 或 `appearance.css`，跑部署脚本即可生效。
+
+## Highlights
+
+- ⌨️ **Windows Terminal 风格快捷键。** `Alt+Shift+=` 分屏、`Alt+方向键` 跳窗格、`Alt+Shift+方向键` 调大小——肌肉记忆零成本迁移。
+- 🟣 **Firefox 风格药丸标签。** 四角全圆、主题色线圈，激活标签实色 + 同色辉光，一眼看清当前窗格。
+- 🪟 **tmux 风格分割线。** 平时隐形、hover 才显主题色，焦点窗格带主题色描边，告别粗黑分割线。
+- 🚫 **隐藏滚动条。** 终端视口滚动条归零但保留滚动功能，画面更干净。
+- 🔌 **串口友好。** 分屏后 `Alt+Shift-S` 换 COM 口、`Alt+Shift-X` 直接关串口窗格（串口没有 shell，`exit` 关不掉它）。
+- 🛡️ **安全部署。** 脚本先备份再覆盖，且检测到 Tabby 在运行就直接拒绝——杜绝"改了没生效"。
+- ↩️ **一键恢复出厂。** `restore.ps1` 用原始配置覆盖，当前配置自动留底，随时反悔。
+- 🧩 **兼容后续客制化。** 套件式结构，新增主题/快捷键/插件只需加文件，不用改名。
+
+## Get started
+
+> [!IMPORTANT]
+> **先完全退出 Tabby（含托盘图标）再运行脚本。** Tabby 运行时会把内存里的配置全量写回磁盘，覆盖你刚部署的文件——这是最容易踩的坑，脚本已内置检测并会直接拒绝。
+
+**1. 获取配置**
+
+```powershell
+git clone https://github.com/OWNER/tabby-terminal-kit.git
+cd tabby-terminal-kit
+```
+
+**2. 部署**（自动备份现有配置 → 部署 `config.yaml`）
 
 ```powershell
 pwsh -File .\scripts\deploy.ps1
-pwsh -File .\scripts\deploy.ps1 -Force              # 跳过确认
-pwsh -File .\scripts\deploy.ps1 -ConfigDir "D:\tabby-data"   # 自定义 userData 目录
 ```
 
-**恢复出厂设置**（备份现有 → 用 `config.yaml.orig` 覆盖，清除所有客制化）：
+**3. 启动 Tabby**，即生效。
+
+**平台支持**
+
+- ✅ **Windows 10 / 11** · 验证于 Tabby **1.0.237**
+- ⚪ **macOS / Linux** · 快捷键/布局概念部分通用，但本配置针对 Windows 键位与串口场景调优，未做其他平台适配
+
+**系统要求**
+
+- Tabby **1.0.237+**（`appearance.css`、`close-pane`、`switch-profile` 等键位需此版本）
+- PowerShell 5.1+（Windows 自带）或 PowerShell 7（推荐）
+
+## What's inside
+
+文件结构：
+
+| 文件 | 作用 |
+|---|---|
+| `config.yaml` | 当前生效配置：快捷键 + 外观 CSS |
+| `config.yaml.orig` | 客制化前的原始配置（恢复出厂用） |
+| `scripts/deploy.ps1` | 部署（先备份 → 覆盖） |
+| `scripts/restore.ps1` | 恢复出厂（先备份 → 覆盖） |
+| `assets/logo.svg` | 项目 Logo |
+
+**快捷键一览**
+
+| 功能 | 键位 |
+|---|---|
+| 向右 / 向下分屏 | `Alt+Shift+=` / `Alt+Shift+-` |
+| 窗格跳转 ←↑↓→ | `Alt+方向键` |
+| 分屏调宽/高 | `Alt+Shift+方向键` |
+| 切换当前窗格 profile | `Alt+Shift-S` |
+| 关闭当前窗格 | `Alt+Shift-X` |
+
+**外观 CSS**（注入于 `appearance.css`）：隐藏终端滚动条 · `split-tab-spanner` 改为细线 hover 显色 · `split-tab > .child.focused` 焦点描边 · `tab-header` 四角全圆 + 主题色线圈。
+
+> [!TIP]
+> **串口换 COM 口是两步：** 先分屏（`Alt+Shift+=`，新窗格默认复制当前串口），再在新窗格按 `Alt+Shift-S` 选另一个 COM 口。PowerShell / WSL 分屏后不用第二步。
+
+> [!TIP]
+> **串口关不掉？** 串口没有本地 shell，`exit` 只会把字符发给设备。用 `Alt+Shift-X` 直接关窗格（对 PowerShell / WSL / 串口都有效）。
+
+## Customize / 二次开发
+
+改配置只需编辑 `config.yaml` 的两个段，然后重新部署：
+
+```yaml
+hotkeys:
+  split-right:
+    - Alt-Shift-=      # 改成你顺手的键
+appearance:
+  css: |
+    /* 这里写自定义 CSS，改完部署重启即可 */
+```
+
+部署/恢复脚本都支持自定义配置目录（便携版）和跳过确认：
 
 ```powershell
-pwsh -File .\scripts\restore.ps1
+pwsh -File .\scripts\deploy.ps1 -ConfigDir "D:\tabby-data"
+pwsh -File .\scripts\deploy.ps1 -Force
 pwsh -File .\scripts\restore.ps1 -Force
-pwsh -File .\scripts\restore.ps1 -ConfigDir "D:\tabby-data"
 ```
 
-- 默认配置目录：`%APPDATA%\tabby`（Windows）
-- 备份文件命名：部署为 `config.yaml.bak-<时间戳>`，恢复为 `config.yaml.before-restore-<时间戳>`，都放在同一配置目录，随时可手动拷回
-- 恢复后想重新启用客制化：跑 `deploy.ps1` 即可（恢复前的客制化配置已备份）
+**关键实现依据**（改坏时能查）：
+- Tabby 内置插件源码在 `C:\Program Files\Tabby\resources\builtin-plugins\`（`tabby-core/src`、`tabby-terminal/src`），比在线文档精确
+- 选择器：标签 `.main.content > .tab-bar > .tabs > tab-header(.active)`；分割线 `split-tab-spanner`（`.h`/`.v`/`.active`）；焦点窗格 `split-tab > .child.focused`；终端视口 `.xterm-viewport`
 
-<details>
-<summary>手动命令（不想用脚本时）</summary>
+## How to Contribute
 
-```powershell
-# 部署
-Copy-Item "$env:APPDATA\tabby\config.yaml" `
-          "$env:APPDATA\tabby\config.yaml.bak-$(Get-Date -Format yyyyMMdd-HHmmss)"
-Copy-Item ".\config.yaml" "$env:APPDATA\tabby\config.yaml" -Force
+> [!IMPORTANT]
+> 最好的贡献方式是**先部署用一用**：打开 Tabby 看看标签有没有变圆、分屏手感对不对。如果某个效果没生效，先确认 Tabby 已完全退出后重新部署，再带着 Tabby 版本、Windows 版本和你的 `config.yaml` 片段提 issue——这比直接写代码更有价值。
 
-# 恢复出厂
-Copy-Item ".\config.yaml.orig" "$env:APPDATA\tabby\config.yaml" -Force
-```
+- 🐛 **报 bug：** 附 Tabby 版本、Windows 版本、期望效果 vs 实际效果、相关配置片段。
+- 💻 **贡献配置：** 新增/改进快捷键或 CSS，PR 请说明改了 `hotkeys:` 还是 `appearance.css`，以及验证用的 Tabby 版本。
+- 📝 **写文档：** 补 English 版 `docs/README.en.md`，或补一张效果截图到 `assets/preview.png`。
+- 💬 **讨论：** 用 GitHub Discussions 聊新想法与兼容性。
 
-复制前请确保 Tabby 已完全退出。
+## Licence
 
-</details>
+- 本项目采用 [MIT](LICENSE) 开源协议，可自由使用、修改、分发，包括商业场景。
+- Tabby 本体是其作者的开源项目；本仓库仅提供用户配置与脚本，不包含 Tabby 源码。
+
+## DMCA
+
+若你认为本仓库或其发布物侵犯了你的著作权，请通过仓库 issue 提交：被侵权作品描述、疑似侵权内容链接、你的联系方式、你善意认为该使用未经授权的说明，以及声明通知内容准确且你有权代表权利人的（电子）签名声明。有效通知将被及时处理；被移除内容可提交反通知。
+
+## Code of Conduct / Security
+
+- **行为准则：** 友善、就事论事、尊重不同经验水平。人身攻击与骚扰不受欢迎。
+- **安全政策：** 本仓库只含配置文件与 PowerShell 脚本，**不联网、不收集数据**。脚本仅在本机复制/备份 `config.yaml`，不修改系统其他位置。若发现安全问题，请私密联系维护者而非公开 issue。
+
+---
+
+<p align="center">
+  <sub>Made for developers who wanted their Tabby to feel like home.</sub>
+</p>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <!-- 终端窗口主体 -->
+  <rect x="10" y="24" width="100" height="76" rx="10" fill="#171717" stroke="#0568FD" stroke-width="3"/>
+  <!-- tab 栏背景 -->
+  <path d="M10 34 a10 10 0 0 1 10-10 h80 a10 10 0 0 1 10 10 v8 H10 z" fill="#212123"/>
+  <!-- 三个药丸标签：两侧描边、中间激活填充 + 线圈 -->
+  <rect x="18" y="30" width="30" height="12" rx="6" fill="none" stroke="#0568FD" stroke-width="1.5" opacity="0.6"/>
+  <rect x="52" y="30" width="30" height="12" rx="6" fill="#0568FD" stroke="#8ab4ff" stroke-width="1.5"/>
+  <rect x="86" y="30" width="24" height="12" rx="6" fill="none" stroke="#0568FD" stroke-width="1.5" opacity="0.6"/>
+  <!-- 终端提示符 -->
+  <path d="M20 56 l10 8 -10 8" fill="none" stroke="#b1e969" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="40" y1="72" x2="80" y2="72" stroke="#cacaca" stroke-width="3" stroke-linecap="round"/>
+  <line x1="20" y1="88" x2="58" y2="88" stroke="#cacaca" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
+  <!-- 光标 -->
+  <rect x="64" y="84" width="10" height="8" fill="#0568FD"/>
+</svg>
