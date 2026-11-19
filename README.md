@@ -5,17 +5,19 @@
 <h1 align="center">tabby-terminal-kit</h1>
 <h3 align="center">A drop-in config kit for Tabby — Windows Terminal-style keybindings, Firefox-style pill tabs, and tmux-style panes. No source edits, no rebuild.</h3>
 
-<!--
-  首屏产品截图：发布前请补一张实际效果大图（建议 16:9，展示药丸标签 + 分屏 + 配色），
-  放到 assets/preview.png 后取消下面这段注释。现在没有成品图，留空以免显示破图。
-
 <p align="center">
-  <img src="assets/preview.png" alt="tabby-terminal-kit in action" width="100%" />
+  <a href="https://www.youtube.com/watch?v=jU7Q0876iWU" target="_blank" rel="noopener noreferrer">
+    <img src="https://img.youtube.com/vi/jU7Q0876iWU/hqdefault.jpg" alt="tabby-terminal-kit demo video" width="80%" />
+  </a>
 </p>
 <p align="center">
-  <sub>药丸形标签 · 主题色线圈 · tmux 风格分割线 · Windows Terminal 风格快捷键</sub>
+  <a href="https://www.youtube.com/watch?v=jU7Q0876iWU" target="_blank" rel="noopener noreferrer">
+    <img src="https://img.shields.io/badge/▶_Watch_the_demo-FF0000?style=for-the-badge&logo=youtube&logoColor=white" alt="Watch demo on YouTube" />
+  </a>
 </p>
--->
+<p align="center">
+  <sub>UI 展示 · 分屏 / 跳转 / 调整 / 关闭 · 串口 profile 切换 — 点击图片或按钮观看</sub>
+</p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Version-1.0.0-0568FD?style=flat&logo=semver&logoColor=F8F8F8&labelColor=212123" alt="Version 1.0.0" />
