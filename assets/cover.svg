@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#080d1a"/>
+    <stop offset="0.55" stop-color="#0d1426"/>
+    <stop offset="1" stop-color="#0a0f1e"/>
+  </linearGradient>
+  <linearGradient id="title" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#6ab0ff"/>
+    <stop offset="0.55" stop-color="#2f86ff"/>
+    <stop offset="1" stop-color="#0568fd"/>
+  </linearGradient>
+  <radialGradient id="glow1">
+    <stop offset="0" stop-color="#0568fd" stop-opacity="0.38"/>
+    <stop offset="1" stop-color="#0568fd" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="glow2">
+    <stop offset="0" stop-color="#7a5cff" stop-opacity="0.22"/>
+    <stop offset="1" stop-color="#7a5cff" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="win" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#1b2338"/>
+    <stop offset="1" stop-color="#111827"/>
+  </linearGradient>
+  <linearGradient id="activeTab" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#1e2b4a"/>
+    <stop offset="1" stop-color="#182238"/>
+  </linearGradient>
+  <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+    <feDropShadow dx="0" dy="24" stdDeviation="28" flood-color="#000000" flood-opacity="0.55"/>
+  </filter>
+  <filter id="blueglow" x="-60%" y="-60%" width="220%" height="220%">
+    <feGaussianBlur stdDeviation="5" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <pattern id="grid" width="44" height="44" patternUnits="userSpaceOnUse">
+    <path d="M44 0H0V44" fill="none" stroke="#ffffff" stroke-opacity="0.028" stroke-width="1"/>
+  </pattern>
+</defs>
+
+<rect width="1280" height="720" fill="url(#bg)"/>
+<rect width="1280" height="720" fill="url(#grid)"/>
+<circle cx="1040" cy="230" r="420" fill="url(#glow1)"/>
+<circle cx="180" cy="660" r="300" fill="url(#glow2)"/>
+
+<rect x="0" y="0" width="6" height="720" fill="url(#title)"/>
+
+<g font-family="Segoe UI, system-ui, sans-serif">
+  <rect x="72" y="150" width="16" height="16" rx="4" fill="#0568fd"/>
+  <text x="100" y="164" fill="#6ab0ff" font-size="15" font-weight="600" letter-spacing="3">TABBY · CONFIG KIT</text>
+
+  <text x="68" y="252" fill="#f2f6ff" font-size="70" font-weight="700" letter-spacing="-1">Tabby</text>
+  <text x="68" y="330" fill="url(#title)" font-size="70" font-weight="700" letter-spacing="-1">Terminal Kit</text>
+
+  <text x="72" y="382" fill="#9fb0cc" font-size="17" font-weight="400">Windows Terminal keybindings, Firefox-style pill tabs,</text>
+  <text x="72" y="408" fill="#9fb0cc" font-size="17" font-weight="400">and tmux-style panes — no rebuild required.</text>
+
+  <g font-size="13" font-weight="600">
+    <rect x="72" y="438" width="150" height="30" rx="15" fill="#12203a" stroke="#2a5a9e" stroke-width="1"/>
+    <text x="147" y="458" fill="#7db4ff" text-anchor="middle">WINDOWS KEYS</text>
+    <rect x="232" y="438" width="126" height="30" rx="15" fill="#12203a" stroke="#2a5a9e" stroke-width="1"/>
+    <text x="295" y="458" fill="#7db4ff" text-anchor="middle">PILL TABS</text>
+    <rect x="368" y="438" width="132" height="30" rx="15" fill="#12203a" stroke="#2a5a9e" stroke-width="1"/>
+    <text x="434" y="458" fill="#7db4ff" text-anchor="middle">TMUX PANES</text>
+  </g>
+
+  <text x="72" y="518" fill="#5f7396" font-size="12" font-weight="600" letter-spacing="2">KEYBOARD, YOUR WAY</text>
+  <g font-family="Consolas, SFMono-Regular, monospace" font-size="13">
+    <rect x="72" y="534" width="150" height="28" rx="6" fill="#1a2740" stroke="#2c3d5e" stroke-width="1"/>
+    <text x="147" y="552" fill="#d7e6ff" text-anchor="middle">Alt+Shift+=</text>
+    <text x="234" y="553" fill="#8fa4c4" font-family="Segoe UI, sans-serif">split pane</text>
+
+    <rect x="72" y="570" width="150" height="28" rx="6" fill="#1a2740" stroke="#2c3d5e" stroke-width="1"/>
+    <text x="147" y="588" fill="#d7e6ff" text-anchor="middle">Alt+Arrows</text>
+    <text x="234" y="589" fill="#8fa4c4" font-family="Segoe UI, sans-serif">navigate</text>
+
+    <rect x="72" y="606" width="150" height="28" rx="6" fill="#1a2740" stroke="#2c3d5e" stroke-width="1"/>
+    <text x="147" y="624" fill="#d7e6ff" text-anchor="middle">Alt+Shift+S</text>
+    <text x="234" y="625" fill="#8fa4c4" font-family="Segoe UI, sans-serif">switch profile</text>
+
+    <rect x="386" y="606" width="150" height="28" rx="6" fill="#1a2740" stroke="#2c3d5e" stroke-width="1"/>
+    <text x="461" y="624" fill="#d7e6ff" text-anchor="middle">Alt+Shift+X</text>
+    <text x="548" y="625" fill="#8fa4c4" font-family="Segoe UI, sans-serif">close pane</text>
+  </g>
+</g>
+
+<g filter="url(#shadow)">
+  <rect x="660" y="150" width="558" height="440" rx="16" fill="url(#win)" stroke="#2b3757" stroke-width="1.5"/>
+</g>
+<clipPath id="winclip"><rect x="660" y="150" width="558" height="440" rx="16"/></clipPath>
+<g clip-path="url(#winclip)">
+  <rect x="660" y="150" width="558" height="60" fill="#0e1526"/>
+
+  <g font-family="Segoe UI, sans-serif" font-size="12">
+    <rect x="676" y="166" width="132" height="30" rx="15" fill="url(#activeTab)" stroke="#3f8bff" stroke-width="1.6" filter="url(#blueglow)"/>
+    <circle cx="694" cy="181" r="4" fill="#4d9fff"/>
+    <text x="706" y="185" fill="#eaf2ff" font-weight="600">powershell</text>
+    <rect x="816" y="166" width="128" height="30" rx="15" fill="transparent" stroke="#33415f" stroke-width="1.2"/>
+    <circle cx="834" cy="181" r="4" fill="#5f7396"/>
+    <text x="846" y="185" fill="#8fa4c4">COM50</text>
+    <rect x="952" y="166" width="120" height="30" rx="15" fill="transparent" stroke="#33415f" stroke-width="1.2"/>
+    <circle cx="970" cy="181" r="4" fill="#5f7396"/>
+    <text x="982" y="185" fill="#8fa4c4">wsl</text>
+  </g>
+
+  <rect x="676" y="232" width="272" height="342" rx="6" fill="#0b1120" stroke="#1c2942" stroke-width="1"/>
+  <rect x="958" y="232" width="244" height="166" rx="6" fill="#0b1120" stroke="#1c2942" stroke-width="1"/>
+  <rect x="958" y="408" width="244" height="166" rx="6" fill="#0b1120" stroke="#1c2942" stroke-width="1"/>
+  <rect x="952" y="232" width="2.5" height="342" fill="#2f86ff" opacity="0.85"/>
+  <rect x="958" y="402" width="244" height="2.5" fill="#2f86ff" opacity="0.85"/>
+
+  <g font-family="Consolas, SFMono-Regular, monospace" font-size="12">
+    <text x="690" y="258" fill="#9fe462">PS C:\dev&gt;</text>
+    <text x="690" y="280" fill="#c7d6ee">git status</text>
+    <text x="690" y="302" fill="#7f93b3">On branch main</text>
+    <text x="690" y="324" fill="#7f93b3">nothing to commit</text>
+    <text x="690" y="352" fill="#9fe462">PS C:\dev&gt;</text>
+    <text x="690" y="374" fill="#c7d6ee">pwsh deploy.ps1</text>
+    <text x="690" y="396" fill="#5fd0a8">[deploy] backup ok</text>
+    <text x="690" y="418" fill="#5fd0a8">[deploy] done</text>
+    <text x="690" y="446" fill="#9fe462">PS C:\dev&gt;</text>
+    <rect x="690" y="458" width="9" height="15" fill="#4d9fff"/>
+
+    <text x="972" y="258" fill="#9fe462">COM50 &gt;</text>
+    <text x="972" y="280" fill="#7f93b3">XR21V1414 Ch A</text>
+    <text x="972" y="302" fill="#9fe462">COM50 &gt;</text>
+    <rect x="972" y="312" width="9" height="15" fill="#4d9fff"/>
+
+    <text x="972" y="434" fill="#9fe462">$ ~</text>
+    <text x="972" y="456" fill="#c7d6ee">ls ~/workspace</text>
+    <text x="972" y="478" fill="#7f93b3">a1000  c1200  dev-env</text>
+    <text x="972" y="500" fill="#9fe462">$ ~</text>
+    <rect x="972" y="510" width="9" height="15" fill="#4d9fff"/>
+  </g>
+</g>
+
+<rect x="660" y="150" width="558" height="440" rx="16" fill="none" stroke="#3a4a70" stroke-width="1.5"/>
+
+<text x="72" y="688" fill="#4d5f80" font-family="Segoe UI, sans-serif" font-size="13" letter-spacing="1">github.com/OWNER/tabby-terminal-kit</text>
+<text x="1216" y="688" fill="#4d5f80" font-family="Segoe UI, sans-serif" font-size="13" text-anchor="end" letter-spacing="1">MIT LICENSE</text>
+</svg>
