@@ -1,13 +1,13 @@
 <p align="center">
-  <img src="assets/logo.svg" alt="tabby-terminal-kit" width="110" />
+  <img src="assets/logo.svg" alt="tabby-tweaks" width="110" />
 </p>
 
-<h1 align="center">tabby-terminal-kit</h1>
+<h1 align="center">tabby-tweaks</h1>
 <h3 align="center">A drop-in config kit for Tabby — Windows Terminal-style keybindings, Firefox-style pill tabs, and tmux-style panes. No source edits, no rebuild.</h3>
 
 <p align="center">
   <a href="https://www.youtube.com/watch?v=jU7Q0876iWU" target="_blank" rel="noopener noreferrer">
-    <img src="https://img.youtube.com/vi/jU7Q0876iWU/hqdefault.jpg" alt="tabby-terminal-kit demo video" width="80%" />
+    <img src="https://img.youtube.com/vi/jU7Q0876iWU/hqdefault.jpg" alt="tabby-tweaks demo video" width="80%" />
   </a>
 </p>
 <p align="center">
@@ -28,30 +28,30 @@
 </p>
 
 <!--
-  需要真实仓库数据的徽章：发布后把 OWNER 换成你的用户名/组织，再取消注释。
-  未发布前保持注释，避免 broken image。
+  需要真实仓库数据的徽章：仓库已有 star/下载量后，取消对应徽章的注释即可（路径已填好）。
+  当前保持注释，避免数据为 0 时显示异常。
 
-  <a href="https://github.com/OWNER/tabby-terminal-kit/releases"><img src="https://img.shields.io/github/downloads/OWNER/tabby-terminal-kit/total?style=flat&logo=github&label=Downloads&labelColor=212123&color=0568FD" alt="Total Downloads" /></a>
-  <a href="https://github.com/OWNER/tabby-terminal-kit/actions"><img src="https://img.shields.io/github/actions/workflow/status/OWNER/tabby-terminal-kit/ci.yml?label=Build&labelColor=000000" alt="Build" /></a>
-  <a href="https://www.star-history.com/?repos=OWNER%2Ftabby-terminal-kit&type=date&legend=bottom-right"><img src="https://api.star-history.com/badge?repo=OWNER/tabby-terminal-kit&type=rank" alt="Star History Rank" /></a>
+  <a href="https://github.com/xluyang/tabby-tweaks/releases"><img src="https://img.shields.io/github/downloads/xluyang/tabby-tweaks/total?style=flat&logo=github&label=Downloads&labelColor=212123&color=0568FD" alt="Total Downloads" /></a>
+  <a href="https://github.com/xluyang/tabby-tweaks/actions"><img src="https://img.shields.io/github/actions/workflow/status/xluyang/tabby-tweaks/ci.yml?label=Build&labelColor=000000" alt="Build" /></a>
+  <a href="https://www.star-history.com/?repos=xluyang%2Ftabby-tweaks&type=date&legend=bottom-right"><img src="https://api.star-history.com/badge?repo=xluyang/tabby-tweaks&type=rank" alt="Star History Rank" /></a>
   Trendshift：先到 https://trendshift.io 提交仓库拿到 <repository-id>，替换下面 URL 末尾的 0。
   <a href="https://trendshift.io/repositories/0"><img src="https://trendshift.io/api/badge/repositories/0" alt="Trendshift" /></a>
 -->
 
 <p align="center">
-  <a href="https://github.com/OWNER/tabby-terminal-kit"><img src="https://img.shields.io/badge/⭐_Star_this_repo-0568FD?style=for-the-badge&logo=github" alt="Star" /></a>
+  <a href="https://github.com/xluyang/tabby-tweaks"><img src="https://img.shields.io/badge/⭐_Star_this_repo-0568FD?style=for-the-badge&logo=github" alt="Star" /></a>
 </p>
 
 **🇨🇳 简体中文** · [English](docs/README.en.md) *(coming soon)*
 
-<!-- 信任建设：仓库发布后取消注释并替换 OWNER。项目刚起步，当前没有赞助商/star，占位内容会误导访客，故默认关闭。
+<!-- 信任建设：项目刚起步，当前没有赞助商/star，占位内容会误导访客，故默认关闭。有了真实数据后取消注释即可（路径已填好）。
 
 ## Paid Sponsors
 
 <table width="100%">
   <tr>
     <td align="center">
-      <a href="mailto:OWNER@example.com"><b>Contact to sponsor</b></a><br />
+      <a href="mailto:xluyang@example.com"><b>Contact to sponsor</b></a><br />
       <sub>Put your product in front of embedded developers using Tabby.</sub>
     </td>
   </tr>
@@ -59,21 +59,21 @@
 
 ## Star History
 
-<a href="https://www.star-history.com/?repos=OWNER%2Ftabby-terminal-kit&type=date&legend=bottom-right">
-  <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=OWNER/tabby-terminal-kit&type=date&legend=bottom-right" />
+<a href="https://www.star-history.com/?repos=xluyang%2Ftabby-tweaks&type=date&legend=bottom-right">
+  <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=xluyang/tabby-tweaks&type=date&legend=bottom-right" />
 </a>
 
 ## Contributors
 
-<a href="https://github.com/OWNER/tabby-terminal-kit/graphs/contributors">
-  <img alt="Contributors" src="https://contrib.rocks/image?repo=OWNER/tabby-terminal-kit" />
+<a href="https://github.com/xluyang/tabby-tweaks/graphs/contributors">
+  <img alt="Contributors" src="https://contrib.rocks/image?repo=xluyang/tabby-tweaks" />
 </a>
 
 -->
 
 ## About
 
-`tabby-terminal-kit` 是 [Tabby](https://github.com/Eugeny/tabby) 终端的一份**开箱即用的配置套件**：把 Windows Terminal 风格的快捷键、Firefox 风格药丸标签、tmux 风格分割线，打包成一份可部署、可回滚的 `config.yaml`。
+`tabby-tweaks` 是 [Tabby](https://github.com/Eugeny/tabby) 终端的一份**开箱即用的配置套件**：把 Windows Terminal 风格的快捷键、Firefox 风格药丸标签、tmux 风格分割线，打包成一份可部署、可回滚的 `config.yaml`。
 
 原理很简单：Tabby 把快捷键和自定义 CSS 都放在用户配置 `config.yaml` 里（`appearance.css` 会注入到页面 `<style>` 中，优先级高于主题默认）。本仓库就是这份调好效果的配置文件 + 部署/恢复脚本——**不改 Tabby 安装目录、不装编译工具、不动源码**。
 
@@ -105,8 +105,8 @@
 **1. 获取配置**
 
 ```powershell
-git clone https://github.com/OWNER/tabby-terminal-kit.git
-cd tabby-terminal-kit
+git clone https://github.com/xluyang/tabby-tweaks.git
+cd tabby-tweaks
 ```
 
 **2. 部署**（自动备份现有配置 → 部署 `config.yaml`）
