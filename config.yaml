@@ -195,6 +195,7 @@ hotkeys:
   pane-decrease-horizontal:
     - Alt-Shift-Left
   switch-profile:
+    - Alt-Shift-S
     - Ctrl-Alt-T
   profile-selector:
     - Ctrl-Shift-E
@@ -204,30 +205,31 @@ terminal:
   searchOptions: {}
   paneResizeStep: 0.05
   colorScheme:
-    name: Tabby Default
-    foreground: '#cacaca'
-    background: '#171717'
+    name: Dracula
+    foreground: '#f8f8f2'
+    background: '#1e1f29'
     cursor: '#bbbbbb'
     colors:
       - '#000000'
-      - '#ff615a'
-      - '#b1e969'
-      - '#ebd99c'
-      - '#5da9f6'
-      - '#e86aff'
-      - '#82fff7'
-      - '#dedacf'
-      - '#313131'
-      - '#f58c80'
-      - '#ddf88f'
-      - '#eee5b2'
-      - '#a5c7ff'
-      - '#ddaaff'
-      - '#b7fff9'
+      - '#ff5555'
+      - '#50fa7b'
+      - '#f1fa8c'
+      - '#bd93f9'
+      - '#ff79c6'
+      - '#8be9fd'
+      - '#bbbbbb'
+      - '#555555'
+      - '#ff5555'
+      - '#50fa7b'
+      - '#f1fa8c'
+      - '#bd93f9'
+      - '#ff79c6'
+      - '#8be9fd'
       - '#ffffff'
   font: JetBrains Maple Mono
   fontWeightBold: 400
   profile: local:default
+  customColorSchemes: []
 ssh: {}
 clickableLinks: {}
 accessibility: {}

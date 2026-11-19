@@ -24,8 +24,11 @@ Tabby 实际读取的配置路径为 `%APPDATA%\tabby\config.yaml`（Windows）�
 | 左右分屏调宽/窄 | 无 | `Alt+Shift+→` / `Alt+Shift+←` |
 | 上下分屏调高/矮 | 无 | `Alt+Shift+↓` / `Alt+Shift+↑` |
 | 调节步进 `paneResizeStep` | 默认 `0.1` | `0.05` |
+| 切换当前窗格 profile | `Ctrl-Alt-T` | `Alt-Shift-S`(新增,保留原键) |
 
 > 注：`Alt+Shift` 在部分 Windows 多语言环境下可能与输入法切换冲突；`Alt+Shift+=` 更可靠。
+
+**分屏后换串口 profile 的用法**：分屏默认复制当前 tab（COM50 分屏后仍是 COM50）。分屏后在新窗格里按 `Alt+Shift-S`，从弹出的 profile 列表里选另一个 COM 口即可——Tabby 会用新 profile 的 tab 替换该窗格（原生 `switch-profile` 机制，无需改源码）。
 
 ### 2. 外观（CSS 注入）—— `appearance.css`
 
