@@ -1,0 +1,328 @@
+version: 8
+profiles: []
+groups: []
+configSync:
+  parts: {}
+hotkeys:
+  toggle-window:
+    - Ctrl-Space
+  copy-current-path: []
+  debug-save-state:
+    - Ctrl-Shift-Alt-1
+  debug-load-state:
+    - Ctrl-Shift-Alt-2
+  debug-copy-state:
+    - Ctrl-Shift-Alt-3
+  debug-paste-state:
+    - Ctrl-Shift-Alt-4
+  debug-save-output:
+    - Ctrl-Shift-Alt-5
+  debug-load-output:
+    - Ctrl-Shift-Alt-6
+  debug-copy-output:
+    - Ctrl-Shift-Alt-7
+  debug-paste-output:
+    - Ctrl-Shift-Alt-8
+  ctrl-c:
+    - Ctrl-C
+  copy:
+    - Ctrl-Shift-C
+  paste:
+    - Ctrl-Shift-V
+    - Shift-Insert
+  select-all:
+    - Ctrl-Shift-A
+  clear: []
+  zoom-in:
+    - Ctrl-=
+    - Ctrl-Shift-=
+  zoom-out:
+    - Ctrl--
+    - Ctrl-Shift--
+  reset-zoom:
+    - Ctrl-0
+  home:
+    - Home
+  end:
+    - End
+  previous-word:
+    - Ctrl-Left
+  next-word:
+    - Ctrl-Right
+  delete-previous-word:
+    - Ctrl-Backspace
+  delete-line:
+    - Ctrl-Shift-Backspace
+  delete-next-word:
+    - Ctrl-Delete
+  search:
+    - Ctrl-Shift-F
+  pane-focus-all:
+    - Ctrl-Shift-I
+  focus-all-tabs:
+    - Ctrl-Alt-Shift-I
+  insert-new-line:
+    - Alt-Shift-Enter
+  scroll-to-top:
+    - Ctrl-PageUp
+  scroll-page-up:
+    - Alt-PageUp
+  scroll-up:
+    - Ctrl-Shift-Up
+  scroll-down:
+    - Ctrl-Shift-Down
+  scroll-page-down:
+    - Alt-PageDown
+  scroll-to-bottom:
+    - Ctrl-PageDown
+  restart-telnet-session: []
+  restart-ssh-session: []
+  launch-winscp: []
+  open-sftp: []
+  settings-tab: {}
+  settings:
+    - Ctrl-,
+  serial:
+    - Alt-K
+  restart-serial-session: []
+  new-tab:
+    - Ctrl-Shift-T
+  new-window:
+    - Ctrl-Shift-N
+  profile: {}
+  profile-selectors: {}
+  group-selectors: {}
+  toggle-fullscreen:
+    - F11
+    - Alt-Enter
+  close-tab:
+    - Ctrl-Shift-W
+  reopen-tab:
+    - Ctrl-Shift-Z
+  toggle-last-tab: []
+  rename-tab:
+    - Ctrl-Shift-R
+  next-tab:
+    - Ctrl-Shift-Right
+    - Ctrl-Tab
+  previous-tab:
+    - Ctrl-Shift-Left
+    - Ctrl-Shift-Tab
+  next-mru-tab: []
+  previous-mru-tab: []
+  move-tab-left:
+    - Ctrl-Shift-PageUp
+  move-tab-right:
+    - Ctrl-Shift-PageDown
+  rearrange-panes:
+    - Ctrl-Shift
+  duplicate-tab: []
+  pin-tab: []
+  restart-tab: []
+  reconnect-tab: []
+  disconnect-tab: []
+  explode-tab:
+    - Ctrl-Shift-.
+  combine-tabs:
+    - Ctrl-Shift-,
+  tab-1:
+    - Alt-1
+  tab-2:
+    - Alt-2
+  tab-3:
+    - Alt-3
+  tab-4:
+    - Alt-4
+  tab-5:
+    - Alt-5
+  tab-6:
+    - Alt-6
+  tab-7:
+    - Alt-7
+  tab-8:
+    - Alt-8
+  tab-9:
+    - Alt-9
+  tab-10:
+    - Alt-0
+  tab-11: []
+  tab-12: []
+  tab-13: []
+  tab-14: []
+  tab-15: []
+  tab-16: []
+  tab-17: []
+  tab-18: []
+  tab-19: []
+  tab-20: []
+  split-right:
+    - Alt-Shift-=
+    - Alt-Shift-D
+  split-bottom:
+    - Alt-Shift--
+  split-left: []
+  split-top: []
+  pane-nav-right:
+    - Alt-Right
+  pane-nav-down:
+    - Alt-Down
+  pane-nav-up:
+    - Alt-Up
+  pane-nav-left:
+    - Alt-Left
+  pane-nav-previous:
+    - Alt-[
+  pane-nav-next:
+    - Alt-]
+  pane-nav-1: []
+  pane-nav-2: []
+  pane-nav-3: []
+  pane-nav-4: []
+  pane-nav-5: []
+  pane-nav-6: []
+  pane-nav-7: []
+  pane-nav-8: []
+  pane-nav-9: []
+  pane-maximize:
+    - Ctrl-Alt-Enter
+  close-pane: []
+  pane-increase-vertical:
+    - Alt-Shift-Down
+  pane-decrease-vertical:
+    - Alt-Shift-Up
+  pane-increase-horizontal:
+    - Alt-Shift-Right
+  pane-decrease-horizontal:
+    - Alt-Shift-Left
+  switch-profile:
+    - Ctrl-Alt-T
+  profile-selector:
+    - Ctrl-Shift-E
+  command-selector:
+    - Ctrl-Shift-P
+terminal:
+  searchOptions: {}
+  paneResizeStep: 0.05
+  colorScheme:
+    name: Tabby Default
+    foreground: '#cacaca'
+    background: '#171717'
+    cursor: '#bbbbbb'
+    colors:
+      - '#000000'
+      - '#ff615a'
+      - '#b1e969'
+      - '#ebd99c'
+      - '#5da9f6'
+      - '#e86aff'
+      - '#82fff7'
+      - '#dedacf'
+      - '#313131'
+      - '#f58c80'
+      - '#ddf88f'
+      - '#eee5b2'
+      - '#a5c7ff'
+      - '#ddaaff'
+      - '#b7fff9'
+      - '#ffffff'
+  font: JetBrains Maple Mono
+  fontWeightBold: 400
+  profile: local:default
+ssh: {}
+clickableLinks: {}
+accessibility: {}
+appearance:
+  css: |
+    /* ===== 1. 隐藏终端滚动条（保留滚动功能，仅隐藏视觉） ===== */
+    .xterm-viewport {
+      scrollbar-width: none !important;  /* Firefox */
+      -ms-overflow-style: none !important;  /* IE/Edge */
+    }
+    .xterm-viewport::-webkit-scrollbar,
+    split-tab ::-webkit-scrollbar {
+      display: none !important;
+      width: 0 !important;
+      height: 0 !important;
+    }
+
+    /* ===== 2. 分割线改细（Windows Terminal / tmux 风格） ===== */
+    split-tab-spanner {
+      background: transparent !important;
+      opacity: 0;
+      transition: background 0.15s, opacity 0.15s;
+    }
+    split-tab-spanner:hover,
+    split-tab-spanner.active {
+      background: var(--theme-primary) !important;
+      opacity: 1;
+    }
+    /* 纵向分割线（左右分屏）：细竖线 */
+    split-tab-spanner.h {
+      width: 4px !important;
+      margin-left: -2px !important;
+    }
+    /* 横向分割线（上下分屏）：细横线 */
+    split-tab-spanner.v {
+      height: 4px !important;
+      margin-top: -2px !important;
+    }
+
+    /* ===== 3. 激活窗口的分割线着色（tmux 风格） ===== */
+    split-tab > .child {
+      border: 1px solid transparent !important;
+      box-sizing: border-box;
+    }
+    split-tab > .child.focused {
+      border-color: var(--theme-primary) !important;
+    }
+
+    /* ===== 4. 四角全圆角标签（pill 药丸形，上下都圆） ===== */
+    /* tab-bar 保持与内容区协调的底色 */
+    .main.content > .tab-bar {
+      background: var(--theme-bg-more-2) !important;
+    }
+
+    /* 每个标签：四角全圆 + 主题色线圈 + 上下左右留间隙，像独立悬浮的药丸 */
+    .tab-bar > .tabs tab-header {
+      box-sizing: border-box !important;
+      border: 1px solid var(--theme-primary) !important;  /* fallback */
+      border: 1px solid color-mix(in srgb, var(--theme-primary) 45%, transparent) !important;
+      border-radius: 12px !important;
+      margin: 5px 3px !important;
+      color: var(--theme-fg-more-2) !important;
+      transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease !important;
+      /* 非 active 标签透明，融入 tab-bar */
+      background: transparent !important;
+    }
+    .tab-bar > .tabs tab-header:hover {
+      background: rgba(127, 127, 127, 0.18) !important;
+      color: var(--theme-fg) !important;
+      border-color: color-mix(in srgb, var(--theme-primary) 80%, transparent) !important;
+    }
+
+    /* active 标签：实色主题线圈 + 同色辉光 + 文字高亮 */
+    .tab-bar > .tabs tab-header.active {
+      background: rgba(127, 127, 127, 0.28) !important;
+      color: var(--theme-fg) !important;
+      border-color: var(--theme-primary) !important;
+      box-shadow: 0 0 8px color-mix(in srgb, var(--theme-primary) 55%, transparent),
+                  0 1px 4px rgba(0, 0, 0, 0.25) !important;
+    }
+
+    /* 顶部的 active 指示细条：药丸风格下隐藏，改用圆角+底色表达 */
+    .tab-bar > .tabs tab-header .current-tab-indicator {
+      display: none !important;
+    }
+    /* 底部色条贴合底部圆角（若某标签设置了 tab.color） */
+    .tab-bar > .tabs tab-header .colorbar {
+      border-radius: 0 0 12px 12px !important;
+    }
+hacks: {}
+pluginBlacklist: []
+providerBlacklist: []
+commandBlacklist: []
+profileDefaults:
+  ssh:
+    disableDynamicTitle: true
+profileBlacklist: []
+enableAnalytics: false
