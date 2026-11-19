@@ -28,7 +28,10 @@ Tabby 实际读取的配置路径为 `%APPDATA%\tabby\config.yaml`（Windows）�
 
 > 注：`Alt+Shift` 在部分 Windows 多语言环境下可能与输入法切换冲突；`Alt+Shift+=` 更可靠。
 
-**分屏后换串口 profile 的用法**：分屏默认复制当前 tab（COM50 分屏后仍是 COM50）。分屏后在新窗格里按 `Alt+Shift-S`，从弹出的 profile 列表里选另一个 COM 口即可——Tabby 会用新 profile 的 tab 替换该窗格（原生 `switch-profile` 机制，无需改源码）。
+**分屏后换串口 profile 的用法**（两步，是两个独立的键）：
+
+1. **先分屏**：`Alt+Shift+=` / `Alt+Shift+D`（向右）或 `Alt+Shift+-`（向下）。分屏默认复制当前 tab，所以 COM50 分屏后新窗格仍是 COM50——这是正常的。
+2. **再切换**：在新窗格里按 `Alt+Shift-S`（或右键 → **Switch profile**），从弹出的 profile 列表里选另一个 COM 口即可——Tabby 会用新 profile 的 tab 替换该窗格（原生 `switch-profile` 机制，无需改源码）。PowerShell / WSL 分屏后无需第 2 步，保持原样复制即可。
 
 ### 2. 外观（CSS 注入）—— `appearance.css`
 
