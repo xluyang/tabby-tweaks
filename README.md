@@ -75,7 +75,7 @@
 
 `tabby-tweaks` 是 [Tabby](https://github.com/Eugeny/tabby) 终端的一份**开箱即用的配置套件**：把 Windows Terminal 风格的快捷键、Firefox 风格药丸标签、tmux 风格分割线，打包成一份可部署、可回滚的 `config.yaml`。
 
-原理很简单：Tabby 把快捷键和自定义 CSS 都放在用户配置 `config.yaml` 里（`appearance.css` 会注入到页面 `<style>` 中，优先级高于主题默认）。本仓库就是这份调好效果的配置文件 + 部署/恢复脚本——**不改 Tabby 安装目录、不装编译工具、不动源码**。
+原理很简单：Tabby 把快捷键和自定义 CSS 都放在用户配置 `config.yaml` 里（`appearance.css` 会注入到页面 `<style>` 中，优先级高于主题默认）。串口日志着色则由 `tabby-highlight` 插件完成——它在渲染前往数据流里插入 ANSI 颜色码，纯文本日志因此也能彩色。本仓库就是这份调好效果的配置文件 + 部署/恢复脚本——**不改 Tabby 安装目录、不装编译工具、不动源码**。
 
 无套路承诺：纯配置、不联网、不埋点。部署前自动备份，一条命令恢复出厂，随时可退。
 
@@ -93,6 +93,7 @@
 - 🪟 **tmux 风格分割线。** 平时隐形、hover 才显主题色，焦点窗格带主题色描边，告别粗黑分割线。
 - 🚫 **隐藏滚动条。** 终端视口滚动条归零但保留滚动功能，画面更干净。
 - 🔌 **串口友好。** 分屏后 `Alt+Shift-S` 换 COM 口、`Alt+Shift-X` 直接关串口窗格（串口没有 shell，`exit` 关不掉它）。
+- 🌈 **串口日志彩色高亮。** 通用规则覆盖 ERROR/WARN/INFO 等级别词、时间戳、IP/MAC/十六进制地址，仅对串口会话生效（需装 `tabby-highlight` 插件）。
 - 🛡️ **安全部署。** 脚本先备份再覆盖，且检测到 Tabby 在运行就直接拒绝——杜绝"改了没生效"。
 - ↩️ **一键恢复出厂。** `restore.ps1` 用原始配置覆盖，当前配置自动留底，随时反悔。
 - 🧩 **兼容后续客制化。** 套件式结构，新增主题/快捷键/插件只需加文件，不用改名。
@@ -115,7 +116,9 @@ cd tabby-tweaks
 pwsh -File .\scripts\deploy.ps1
 ```
 
-**3. 启动 Tabby**，即生效。
+**3. 启动 Tabby**，快捷键与外观即生效。
+
+**4.（可选）串口日志高亮。** 在 Tabby `设置 → 插件` 搜索安装 **Highlight**（`moemoechu/tabby-highlight`），彻底退出并重开 Tabby 后，串口日志会自动彩色；规则已随 `config.yaml` 部署，无需手动导入。若想自定义，可导入 `highlights/universal-log.json` 或在设置里编辑。
 
 **平台支持**
 
@@ -137,6 +140,8 @@ pwsh -File .\scripts\deploy.ps1
 | `config.yaml.orig` | 客制化前的原始配置（恢复出厂用） |
 | `scripts/deploy.ps1` | 部署（先备份 → 覆盖） |
 | `scripts/restore.ps1` | 恢复出厂（先备份 → 覆盖） |
+| `highlights/universal-log.json` | 通用日志高亮方案（可导入 `tabby-highlight`） |
+| `highlights/highlight-plugin.yaml` | 高亮配置片段（单独查阅/分享用，已同步进 `config.yaml`） |
 | `assets/logo.svg` | 项目 Logo |
 
 **快捷键一览**
@@ -150,6 +155,19 @@ pwsh -File .\scripts\deploy.ps1
 | 关闭当前窗格 | `Alt+Shift-X` |
 
 **外观 CSS**（注入于 `appearance.css`）：隐藏终端滚动条 · `split-tab-spanner` 改为细线 hover 显色 · `split-tab > .child.focused` 焦点描边 · `tab-header` 四角全圆 + 主题色线圈。
+
+**串口日志高亮**（`highlightPlugin` 段，需先装 `tabby-highlight` 插件）：规则设计借鉴 ccze / Grep Console 的分级配色，且不绑定任何具体设备——
+
+| 类别 | 匹配 | 着色 |
+|---|---|---|
+| 严重级别 | FATAL / CRITICAL / PANIC | 白字红底 + 加粗 |
+| 错误级别 | ERROR / EXCEPTION / 错误 / 异常 / 失败 | 亮红 |
+| 警告级别 | WARN / WARNING / 警告 | 黑字黄底 |
+| 成功 / 信息 | SUCCESS / OK / INFO / 成功 / 信息 | 绿底 / 青底 |
+| 调试 | DEBUG / TRACE / VERBOSE | 暗灰 |
+| 结构化数据 | 时间戳 · IP · MAC · `0x` 地址 · UUID · URL | 蓝 / 青 / 洋红 |
+
+作用域为 `serial` 会话类型（`highlightPerSessionTypeProfileMap`），PowerShell / WSL / SSH 不受影响。用户配置已随 `config.yaml` 一起部署；方案源文件 `highlights/universal-log.json` 也可在插件设置里单独导入。
 
 > [!TIP]
 > **串口换 COM 口是两步：** 先分屏（`Alt+Shift+=`，新窗格默认复制当前串口），再在新窗格按 `Alt+Shift-S` 选另一个 COM 口。PowerShell / WSL 分屏后不用第二步。

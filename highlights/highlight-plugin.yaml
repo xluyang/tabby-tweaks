@@ -1,0 +1,51 @@
+# tabby-highlight 配置片段
+# 依赖插件：moemoechu/tabby-highlight（设置 → 插件 → 搜索 Highlight 安装）
+# 已同步进仓库 config.yaml；此文件供单独查阅、分享或粘贴到其他机器。
+# 作用域：仅 serial 会话类型生效（highlightPerSessionTypeEnabled: true），PowerShell/WSL/SSH 不受影响。
+
+highlightPlugin:
+  highlightEnabled: true
+  highlightAlternateDisable: false
+  highlightMode: "xterm-control-sequence"
+  highlightCurrentProfile: "5dbad637-714a-4f74-919d-0619a65c52c6"
+  highlightProfiles:
+    - id: "5dbad637-714a-4f74-919d-0619a65c52c6"
+      name: "Universal Log Highlight"
+      keywords:
+        - { text: '\b(FATAL|CRITICAL|PANIC|EMERG(?:ENCY)?)\b', enabled: true, isRegExp: true, isCaseSensitive: false, foreground: true, foregroundColor: '15', background: true, backgroundColor: '1', bold: true }
+        - { text: '\b(ERROR|ERR|EXCEPTION|SEVERE)\b', enabled: true, isRegExp: true, isCaseSensitive: false, foreground: true, foregroundColor: '9', background: false, backgroundColor: '1', bold: true }
+        - { text: '\b(WARN(?:ING)?)\b', enabled: true, isRegExp: true, isCaseSensitive: false, foreground: true, foregroundColor: '0', background: true, backgroundColor: '3' }
+        - { text: '\b(SUCCESS(?:FUL(?:LY)?)?|SUCCEEDED|OK|PASSED|COMPLETED)\b', enabled: true, isRegExp: true, isCaseSensitive: false, foreground: true, foregroundColor: '0', background: true, backgroundColor: '2' }
+        - { text: '\b(INFO|NOTICE)\b', enabled: true, isRegExp: true, isCaseSensitive: false, foreground: true, foregroundColor: '0', background: true, backgroundColor: '6' }
+        - { text: '\b(DEBUG|VERBOSE|TRACE|DBG)\b', enabled: true, isRegExp: true, isCaseSensitive: false, foreground: true, foregroundColor: '8', background: false, dim: true }
+        - { text: '\b(failed|failure|refused|denied|timed?[ -]?out|unreachable|disconnected|not found|no such|cannot|unable to|invalid|corrupt(?:ed|ion)?|crash(?:ed)?)\b', enabled: true, isRegExp: true, foreground: true, foregroundColor: '9' }
+        - { text: '\b(connected|established|started|listening|ready|accepted|enabled|loaded|succeeded)\b', enabled: true, isRegExp: true, foreground: true, foregroundColor: '10' }
+        - { text: '(错误|异常|失败|致命|崩溃|断电)', enabled: true, isRegExp: true, foreground: true, foregroundColor: '9' }
+        - { text: '(警告|告警|注意)', enabled: true, isRegExp: true, foreground: true, foregroundColor: '11' }
+        - { text: '(成功|完成|就绪|已连接|上线)', enabled: true, isRegExp: true, foreground: true, foregroundColor: '10' }
+        - { text: '(信息|提示)', enabled: true, isRegExp: true, foreground: true, foregroundColor: '6' }
+        - { text: '\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}:\d{2}(?:[.,]\d+)?(?:Z|[+-]\d{2}:?\d{2})?', enabled: true, isRegExp: true, foreground: true, foregroundColor: '4' }
+        - { text: '\[\d{1,2}:\d{2}:\d{2}(?:[.,]\d+)?\]', enabled: true, isRegExp: true, foreground: true, foregroundColor: '4' }
+        - { text: '\b(?:(?:25[0-5]|2[0-4]\d|1?\d?\d)\.){3}(?:25[0-5]|2[0-4]\d|1?\d?\d)\b', enabled: true, isRegExp: true, foreground: true, foregroundColor: '6' }
+        - { text: '\b(?:[0-9A-Fa-f]{2}[:-]){5}[0-9A-Fa-f]{2}\b', enabled: true, isRegExp: true, foreground: true, foregroundColor: '14' }
+        - { text: '\b0x[0-9A-Fa-f]+\b', enabled: true, isRegExp: true, foreground: true, foregroundColor: '5' }
+        - { text: '\b[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}\b', enabled: true, isRegExp: true, foreground: true, foregroundColor: '13' }
+        - { text: 'https?://[^\s]+', enabled: true, isRegExp: true, foreground: true, foregroundColor: '12', underline: true }
+  highlightPerSessionEnabled: false
+  highlightPerSessionProfileMap: []
+  highlightPerSessionGroupEnabled: false
+  highlightPerSessionGroupProfileMap: []
+  highlightPerSessionTypeEnabled: true
+  highlightPerSessionTypeProfileMap:
+    - { typeId: serial, profileId: "5dbad637-714a-4f74-919d-0619a65c52c6" }
+  highlightGlobalEnabled: false
+  replaceEnabled: false
+  replaceAlternateDisable: false
+  replaceCurrentProfile: "a46c7bfa-a2e2-4e6c-afe1-1f3ee855bbaf"
+  replaceProfiles:
+    - { id: "a46c7bfa-a2e2-4e6c-afe1-1f3ee855bbaf", name: Default, patterns: [] }
+  advanced:
+    debug: false
+    debugTerminalOutput: false
+    debugPluginOutput: false
+    debugMatch: false
