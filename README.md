@@ -93,7 +93,7 @@
 - 🪟 **tmux 风格分割线。** 平时隐形、hover 才显主题色，焦点窗格带主题色描边，告别粗黑分割线。
 - 🚫 **隐藏滚动条。** 终端视口滚动条归零但保留滚动功能，画面更干净。
 - 🔌 **串口友好。** 分屏后 `Alt+Shift-S` 换 COM 口、`Alt+Shift-X` 直接关串口窗格（串口没有 shell，`exit` 关不掉它）。
-- 🌈 **串口日志彩色高亮。** 通用规则覆盖 ERROR/WARN/INFO 等级别词、时间戳、IP/MAC/十六进制地址，仅对串口会话生效（需装 `tabby-highlight` 插件）。
+- 🌈 **通用日志彩色高亮。** 38 条规则覆盖串口日志、内核 dmesg / journalctl、编译输出（GCC/CMake/rustc）、Docker 日志；串口 / 本地 Shell / SSH 会话均生效（需装 `tabby-highlight` 插件）。
 - 🛡️ **安全部署。** 脚本先备份再覆盖，且检测到 Tabby 在运行就直接拒绝——杜绝"改了没生效"。
 - ↩️ **一键恢复出厂。** `restore.ps1` 用原始配置覆盖，当前配置自动留底，随时反悔。
 - 🧩 **兼容后续客制化。** 套件式结构，新增主题/快捷键/插件只需加文件，不用改名。
@@ -156,18 +156,43 @@ pwsh -File .\scripts\deploy.ps1
 
 **外观 CSS**（注入于 `appearance.css`）：隐藏终端滚动条 · `split-tab-spanner` 改为细线 hover 显色 · `split-tab > .child.focused` 焦点描边 · `tab-header` 四角全圆 + 主题色线圈。
 
-**串口日志高亮**（`highlightPlugin` 段，需先装 `tabby-highlight` 插件）：规则设计借鉴 ccze / Grep Console 的分级配色，且不绑定任何具体设备——
+**通用日志高亮**（`highlightPlugin` 段，需先装 `tabby-highlight` 插件）：38 条规则，设计借鉴 ccze / Grep Console / lnav 的分级配色，覆盖通用日志 + 嵌入式 + 内核 + 编译 + 容器，**不绑定任何具体设备或日志格式**——
 
 | 类别 | 匹配 | 着色 |
 |---|---|---|
 | 严重级别 | FATAL / CRITICAL / PANIC | 白字红底 + 加粗 |
-| 错误级别 | ERROR / EXCEPTION / 错误 / 异常 / 失败 | 亮红 |
-| 警告级别 | WARN / WARNING / 警告 | 黑字黄底 |
-| 成功 / 信息 | SUCCESS / OK / INFO / 成功 / 信息 | 绿底 / 青底 |
-| 调试 | DEBUG / TRACE / VERBOSE | 暗灰 |
-| 结构化数据 | 时间戳 · IP · MAC · `0x` 地址 · UUID · URL | 蓝 / 青 / 洋红 |
+| 错误 / 警告 | ERROR / EXCEPTION / 错误 · WARN / 警告 | 亮红 · 黄底 |
+| 成功 / 信息 / 调试 | SUCCESS / OK · INFO · DEBUG | 绿底 / 青底 / 暗灰 |
+| 结构化数据 | ISO 时间戳 · IP · MAC · `0x` 地址 · UUID · URL | 蓝 / 青 / 洋红 |
 
-作用域为 `serial` 会话类型（`highlightPerSessionTypeProfileMap`），PowerShell / WSL / SSH 不受影响。用户配置已随 `config.yaml` 一起部署；方案源文件 `highlights/universal-log.json` 也可在插件设置里单独导入。
+** Linux 内核与系统日志**
+
+| 场景 | 匹配 | 着色 |
+|---|---|---|
+| dmesg 时间戳 | `[    0.000000]` 启动相对时间 | 暗灰 |
+| 内核致命 | Oops / Kernel panic / Call Trace / BUG: / soft lockup | 白字红底 + 加粗 |
+| 日志级别 | `<3>` 尖括号级别 · `kern :err :` decode 标签 · `[FAILED]` | 红 / 暗灰 |
+| journalctl | `Nov 20 10:02:35` 短时间戳 · `-- Boot ... --` · `systemd[1]:` 进程前缀 | 蓝 / 青 / 暗灰 |
+| 服务动词 | Started / Reached target / Listening on / Mounted | 绿 |
+
+** 编译与构建输出**
+
+| 场景 | 匹配 | 着色 |
+|---|---|---|
+| 诊断前缀 | `error:` / `note:` / `fatal error:` | 红 / 青 |
+| 链接错误 | undefined reference / multiple definition | 亮红 + 加粗 |
+| rustc | `error[E0308]` 错误码 | 亮红 |
+| make / CMake | `***` 致命标记 · `-- Configuring done` 等 | 红 / 绿 |
+| 源码定位 | `main.c:12:5:` 文件名:行号 | 青 |
+
+** 容器与镜像**
+
+| 场景 | 匹配 | 着色 |
+|---|---|---|
+| docker build | `Step 1/10 :` · `sha256:` 摘要 | 青 / 洋红 |
+| 容器状态 | `Exited (1)` 非零退出码 · `Successfully built` | 红 / 绿 |
+
+作用域覆盖 `serial`（串口）、`local`（PowerShell / WSL / bash）、`ssh` 三类会话（`highlightPerSessionTypeProfileMap`）——内核日志、编译输出、Docker 日志通常在 WSL / SSH 里查看，所以一并纳入。用户配置已随 `config.yaml` 一起部署；方案源文件 `highlights/universal-log.json` 也可在插件设置里单独导入。
 
 > [!TIP]
 > **串口换 COM 口是两步：** 先分屏（`Alt+Shift+=`，新窗格默认复制当前串口），再在新窗格按 `Alt+Shift-S` 选另一个 COM 口。PowerShell / WSL 分屏后不用第二步。
